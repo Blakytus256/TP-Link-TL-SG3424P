@@ -1,0 +1,60 @@
+<!-- Botones + Cuadro de especificaciones -->
+<div style="max-width: 700px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <fieldset id="especificaciones" style="border: 2px solid #0D274D; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
+    <legend style="font-size: 20px; font-weight: bold; color: #0D274D;">Especificaciones Técnicas</legend>
+    <ul style="list-style: none; padding-left: 0; color: #333; line-height: 1.6;">
+      <li><strong>Modelo:</strong> TL-SG3424P</li>
+      <li><strong>Marca:</strong> TP-Link</li>
+      <li><strong>Tipo:</strong> Administrable</li>
+      <li><strong>Cantidad de puertos SFP/SFP+:</strong> 4</li>
+      <li><strong>Puertos Gigabit Ethernet (cobre):</strong> 25</li>
+      <li><strong>Consumo energético:</strong> 320 W</li>
+      <li><strong>Velocidad de transferencia de datos:</strong> 10 / 100 / 1000 Mbit/s</li>
+      <li><strong>Estándares de red:</strong>
+        <ul style="margin-left: 20px; list-style-type: disc;">
+          <li>IEEE 802.1D</li>
+          <li>IEEE 802.1p</li>
+          <li>IEEE 802.1Q</li>
+          <li>IEEE 802.1s</li>
+          <li>IEEE 802.1w</li>
+          <li>IEEE 802.1x</li>
+          <li>IEEE 802.3i</li>
+          <li>IEEE 802.3u</li>
+          <li>IEEE 802.3x</li>
+          <li>IEEE 802.3z</li>
+          <li>IEEE 802.3ab</li>
+          <li>IEEE 802.3ad</li>
+        </ul>
+      </li>
+    </ul>
+  </fieldset>
+
+  <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+    <button onclick="descargarPDF()" style="padding: 10px 20px; background-color: #0D274D; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Descargar PDF
+    </button>
+    <a href="index.html" style="text-decoration: none;">
+      <button style="padding: 10px 20px; background-color: #555; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Volver al Inicio
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- Script para descargar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  function descargarPDF() {
+    const element = document.getElementById('especificaciones');
+    html2pdf()
+      .set({
+        margin: 10,
+        filename: 'especificaciones-TL-SG3424P.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      })
+      .from(element)
+      .save();
+  }
+</script>
